@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sala Rural Digital</title>
+<style>
+:root{--green:#236747;--lime:#dff2c2;--gold:#f4c95d;--cream:#f7f8f1;--ink:#20352b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+header{background:linear-gradient(120deg,#174d38,#32805a);color:white;padding:42px 7%;position:relative;overflow:hidden}
+header:after{content:"🌱";position:absolute;font-size:150px;right:8%;top:8px;opacity:.16}
+.tag{display:inline-block;background:var(--gold);color:#243b2e;padding:5px 12px;border-radius:20px;font-size:.85rem;font-weight:bold}
+h1{font-size:clamp(2rem,5vw,3.4rem);margin:15px 0 8px;line-height:1.1}header p{max-width:680px;font-size:1.1rem}
+nav{background:#fff;padding:12px 7%;display:flex;gap:18px;flex-wrap:wrap;position:sticky;top:0;box-shadow:0 2px 8px #0001;z-index:2}nav a{color:var(--green);font-weight:bold;text-decoration:none}
+main{max-width:1100px;margin:auto;padding:28px 20px}section{margin:28px 0}h2{color:var(--green);margin-bottom:8px}
+.search{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.search input{flex:1;min-width:220px;padding:12px;border:1px solid #b9c8bb;border-radius:10px;font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:white;border:1px solid #e0e8dd;border-radius:16px;padding:18px;box-shadow:0 4px 14px #183a2410}
+.emoji{font-size:2rem}.card h3{margin:8px 0;color:#245c42}.card p{margin:7px 0}
+button,.linkbtn{display:inline-block;background:var(--green);color:white;border:0;border-radius:9px;padding:10px 14px;font-weight:bold;cursor:pointer;text-decoration:none;margin-top:8px}
+button:hover,.linkbtn:hover{background:#153d2b}.secondary{background:#e7f1df;color:#244b36}
+.notice{background:#fff5d7;border-left:5px solid var(--gold);padding:14px 16px;border-radius:8px}
+footer{background:#173d2d;color:white;padding:25px 7%;margin-top:35px}
+small{opacity:.85}.empty{display:none;padding:15px}
+</style>
+</head>
+<body>
+<header>
+<span class="tag">REPOSITORIO EDUCATIVO</span>
+<h1>🌿 Sala Rural Digital</h1>
+<p>Un espacio para aprender, enseñar y compartir conocimientos desde el territorio rural. Encuentra ideas, actividades y materiales educativos para usar en el aula o descargar para estudiar sin conexión.</p>
+<a class="linkbtn" href="#recursos">Explorar recursos</a>
+</header>
+<nav><a href="#inicio">Inicio</a><a href="#recursos">Biblioteca digital</a><a href="#areas">Áreas del conocimiento</a><a href="#ruralidad">Contexto rural</a><a href="#docentes">Espacio docente</a><a href="#acerca">Acerca del proyecto</a></nav>
+<main>
+<section id="inicio">
+<h2>Bienvenidos y bienvenidas</h2>
+<p>La Sala Rural Digital busca facilitar el acceso a recursos educativos digitales y apoyar el aprendizaje en comunidades rurales, teniendo en cuenta las condiciones de conectividad, la diversidad cultural y los saberes del territorio.</p>
+<div class="notice"><strong>Importante:</strong> esta es una demostración inicial. Los recursos de ejemplo son propuestas y enlaces generales; antes de usarla formalmente, agrega materiales propios o enlaces verificados y revisa sus permisos de uso.</div>
+</section>
+<section id="recursos">
+<h2>Biblioteca digital</h2>
+<p>Busca por tema o explora las categorías. Los enlaces de cada tarjeta conducen a plataformas educativas externas.</p>
+<div class="search"><input id="search" type="search" placeholder="Buscar por tema, área o palabra..." aria-label="Buscar recursos"><button onclick="filterCards()">Buscar</button><button class="secondary" onclick="resetSearch()">Ver todos</button></div>
+<div class="grid" id="resourceGrid">
+<article class="card" data-terms="ciencias naturales ambiente agua plantas biodiversidad"><div class="emoji">🌱</div><h3>Ciencias naturales y ambiente</h3><p>Ideas para estudiar plantas, agua, ecosistemas y cuidado del entorno.</p><a class="linkbtn" href="https://www.colombiaaprende.edu.co/" target="_blank" rel="noopener">Explorar recursos</a></article>
+<article class="card" data-terms="matemáticas numeros geometria operaciones primaria"><div class="emoji">🔢</div><h3>Matemáticas</h3><p>Actividades para practicar operaciones, números, medidas y geometría.</p><a class="linkbtn" href="https://www.geogebra.org/" target="_blank" rel="noopener">Abrir GeoGebra</a></article>
+<article class="card" data-terms="lenguaje lectura escritura cuentos comprension"><div class="emoji">📚</div><h3>Lenguaje y lectura</h3><p>Cuentos, comprensión lectora, escritura y actividades para fortalecer la comunicación.</p><a class="linkbtn" href="https://arbolabc.com/" target="_blank" rel="noopener">Abrir Árbol ABC</a></article>
+<article class="card" data-terms="sociales territorio historia geografia colombia cultura"><div class="emoji">🗺️</div><h3>Ciencias sociales</h3><p>Materiales para conocer Colombia, sus regiones, historia y diversidad cultural.</p><a class="linkbtn" href="https://www.colombiaaprende.edu.co/" target="_blank" rel="noopener">Consultar Colombia Aprende</a></article>
+<article class="card" data-terms="tecnologia digital pensamiento computacional informatica"><div class="emoji">💻</div><h3>Tecnología e informática</h3><p>Recursos para desarrollar habilidades digitales y pensamiento computacional.</p><a class="linkbtn" href="https://code.org/" target="_blank" rel="noopener">Explorar Code.org</a></article>
+<article class="card" data-terms="actividades interactivas juegos cuestionarios gamificacion"><div class="emoji">🎯</div><h3>Actividades interactivas</h3><p>Juegos, cuestionarios y retos para aprender de forma participativa.</p><a class="linkbtn" href="https://es.educaplay.com/" target="_blank" rel="noopener">Abrir Educaplay</a></article>
+</div><p id="empty" class="empty">No se encontraron recursos con esa búsqueda. Prueba con otra palabra.</p>
+</section>
+<section id="areas">
+<h2>Áreas del conocimiento</h2>
+<div class="grid">
+<div class="card"><h3>🔬 Ciencias naturales</h3><p>Seres vivos, cuerpo humano, agua, clima y sostenibilidad.</p></div>
+<div class="card"><h3>➗ Matemáticas</h3><p>Resolución de problemas, cálculo, medidas y razonamiento lógico.</p></div>
+<div class="card"><h3>✍️ Lenguaje</h3><p>Lectura, escritura, oralidad y tradición narrativa.</p></div>
+<div class="card"><h3>🌎 Sociales</h3><p>Territorio, comunidad, memoria, ciudadanía y cultura.</p></div>
+</div>
+</section>
+<section id="ruralidad">
+<h2>Aprender desde el territorio</h2>
+<p>La educación rural también se construye con los conocimientos de las familias y las comunidades. Aquí pueden reunirse proyectos sobre huertas escolares, biodiversidad local, cuidado del agua, agricultura, pesca responsable, relatos tradicionales y memoria comunitaria.</p>
+<div class="grid">
+<div class="card"><h3>🌾 Huerta escolar</h3><p>Registrar cultivos, etapas de crecimiento y prácticas de cuidado del suelo.</p></div>
+<div class="card"><h3>💧 Agua y ambiente</h3><p>Investigar fuentes de agua, uso responsable y protección de ecosistemas.</p></div>
+<div class="card"><h3>🤝 Saberes comunitarios</h3><p>Documentar relatos, prácticas culturales y conocimientos con autorización de sus participantes.</p></div>
+</div>
+</section>
+<section id="docentes">
+<h2>Espacio docente</h2>
+<ul><li>Organizar recursos por grado, área y objetivo de aprendizaje.</li><li>Preparar guías que puedan imprimirse o guardarse en el dispositivo.</li><li>Seleccionar materiales accesibles, confiables y adecuados a la edad.</li><li>Verificar derechos de autor, licencias y privacidad antes de publicar.</li><li>Probar que los recursos funcionen con la conectividad disponible.</li></ul>
+</section>
+<section id="acerca">
+<h2>Acerca del repositorio</h2>
+<p><strong>Objetivo:</strong> facilitar la búsqueda, organización y utilización de recursos educativos digitales para fortalecer los procesos de enseñanza y aprendizaje en comunidades rurales.</p>
+<p><strong>Población:</strong> estudiantes, docentes, directivos, familias y comunidades educativas rurales.</p>
+<p><strong>Recomendación de uso:</strong> guarda previamente los archivos descargables cuando haya conexión. Los enlaces externos necesitan internet y pueden cambiar.</p>
+</section>
+</main>
+<footer><strong>Sala Rural Digital</strong><br><small>Repositorio educativo demostrativo · Diseñado para apoyar la inclusión, la innovación y el aprendizaje rural.</small></footer>
+<script>
+function filterCards(){const q=document.getElementById('search').value.trim().toLowerCase();let n=0;document.querySelectorAll('#resourceGrid .card').forEach(c=>{const show=(c.innerText+' '+c.dataset.terms).toLowerCase().includes(q);c.style.display=show?'block':'none';if(show)n++});document.getElementById('empty').style.display=n?'none':'block'}
+function resetSearch(){document.getElementById('search').value='';filterCards()}
+document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')filterCards()});
+</script>
+</body>
+</html>
